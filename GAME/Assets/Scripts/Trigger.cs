@@ -9,7 +9,7 @@ public class Trigger : MonoBehaviour
     {
         if (g1.position.x >= g2.position.x)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
     private void Update()
