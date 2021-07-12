@@ -14,8 +14,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        TakeInput();
-        Move();
+        if (!PauseControl.gameIsPaused)
+        {
+            TakeInput();
+            Move();
+        }
     }
 
     private void Move()
