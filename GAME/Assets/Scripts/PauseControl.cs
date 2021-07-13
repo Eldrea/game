@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseControl : MonoBehaviour
 {
@@ -35,5 +36,17 @@ public class PauseControl : MonoBehaviour
         Time.timeScale = 1;
         mainMenu.SetActive(false);
         gameIsPaused = false;
+    }
+
+    public void BackToMainMenu()
+    {
+        gameIsPaused = !gameIsPaused;
+        SceneManager.LoadScene(0);
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameIsPaused = !gameIsPaused;
     }
 }

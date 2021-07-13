@@ -3,18 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class Trigger : MonoBehaviour
 {
-    public Transform g1, g2;
-    
-    void LoadScene()
+
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if (g1.position.x >= g2.position.x)
+        if (collision.name == "Wall")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
-    }
-    private void Update()
-    {
-        LoadScene();
+        
+        
     }
 
 }
