@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseControl : MonoBehaviour
 {
+    public GameObject settingsMenu;
     public GameObject mainMenu;
     public static bool gameIsPaused;
 
@@ -48,5 +49,12 @@ public class PauseControl : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         gameIsPaused = !gameIsPaused;
+    }
+
+    public void OpenSetting()
+    {
+        DeactivateMenu();
+        settingsMenu.SetActive(true);
+        
     }
 }
