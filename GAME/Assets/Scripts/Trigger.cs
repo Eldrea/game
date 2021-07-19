@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Trigger : MonoBehaviour
 {
+    public Dialogue dialogue;
 
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -13,8 +14,14 @@ public class Trigger : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
-        
-        
+
+        if (collision.name == "Friend")
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                dialogue.ActivateDialogue();
+            }
+        }
     }
 
 }
